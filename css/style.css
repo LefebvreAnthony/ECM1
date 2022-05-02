@@ -41,6 +41,11 @@ body {
     right: -0%;
 }
 
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
 form {
     position: absolute;
     z-index: 1;
@@ -53,5 +58,55 @@ form {
     border-radius: 1rem;
     align-items: center;
     text-align: center;
+    padding: 2rem 0;
+}
 
+.container_input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#container_message {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem 0 5rem 0;
+}
+
+label {
+    min-width: 15%;
+    text-align: left;
+    font-size: 2rem;
+}
+
+input {
+    border-radius: .5rem;
+    background-color: var(--bg-input);
+    padding: .3rem .3rem;
+    min-width: 40%;
+    font-size: 2rem;
+}
+
+#container_message>label {
+    margin-bottom: 1rem;
+}
+
+textarea {
+    background-color: var(--bg-input);
+    padding: .3rem .3rem;
+    resize: none;
+    overflow: auto;
+    font-size: 2rem;
+    border-radius: .5rem;
+}
+
+button {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.7rem 11.5rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    border: 1px solid var(--text-color);
+    cursor: pointer;
 }
