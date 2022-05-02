@@ -1,0 +1,20 @@
+/** import font */
+@font-face {
+    font-family: Josefin;
+    src: url("../assets/font/josefin/JosefinSans-Regular.ttf");
+}
+
+/*! reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Josefin;
+    box-sizing: border-box;
+}
+
+/*& all variables */
+:root {
+    --text-color: #fff;
+    --bg-color: #27474E;
+    --bg-input: #FDEDED;
+}
