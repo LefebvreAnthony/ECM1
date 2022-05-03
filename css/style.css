@@ -29,6 +29,7 @@ body {
 
 /** SVG */
 #leftTop {
+
     position: absolute;
     z-index: -1;
     top: 0;
@@ -36,6 +37,7 @@ body {
 }
 
 #rightBottom {
+    z-index: -1;
     position: absolute;
     bottom: -10%;
     right: -0%;
@@ -80,12 +82,14 @@ label {
     font-size: 2rem;
 }
 
-input {
+input[type=text],
+input[type=email] {
     border-radius: .5rem;
     background-color: var(--bg-input);
     padding: .3rem .3rem;
     min-width: 40%;
     font-size: 2rem;
+    outline: none;
 }
 
 #container_message>label {
@@ -94,14 +98,17 @@ input {
 
 textarea {
     background-color: var(--bg-input);
+    width: 70%;
+    height: 20vh;
     padding: .3rem .3rem;
     resize: none;
     overflow: auto;
     font-size: 2rem;
     border-radius: .5rem;
+    outline: none;
 }
 
-button {
+input[type=submit] {
     font-size: 2rem;
     font-weight: 900;
     padding: 0.7rem 11.5rem;
@@ -109,4 +116,67 @@ button {
     border-radius: 1rem;
     border: 1px solid var(--text-color);
     cursor: pointer;
+    color: var(--text-color);
+}
+
+/*! input invalid */
+
+input[type=text]:invalid,
+input[type=email]:invalid,
+textarea:invalid {
+    border: 2px solid red;
+}
+
+/** input valid */
+
+input[type=text]:valid,
+input[type=email]:valid,
+textarea:valid {
+    border: 2px solid rgb(12, 205, 12);
+}
+
+
+/*? Medias */
+
+@media screen and (max-width: 834px) {
+
+    form {
+        position: initial;
+        transform: translate(0);
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    #leftTop {
+        top: -20%;
+        left: -20%;
+        width: 400px;
+    }
+
+    #rightBottom {
+        bottom: -25%;
+        right: -15%;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 428px) {
+
+    .container_input {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input[type=submit] {
+        font-size: 2rem;
+        font-weight: 900;
+        padding: 0.7rem 5.5rem;
+        background-color: transparent;
+    }
+
+    #leftTop,
+    #rightBottom {
+        width: 200px;
+    }
 }

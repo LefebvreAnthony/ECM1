@@ -11,26 +11,26 @@
 </head>
 
 <body>
-    <form action="">
+    <form action="#">
         <h2>Form contact</h2>
         <div>
             <div class="container_input">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Gerard Legaulois">
+                <label for="firstName">Name</label>
+                <input type="text" id="firstName" placeholder="Gerard Legaulois" required minlength="3">
             </div>
             <div class="container_input">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Gerard.legaulois@gmail.com">
+                <input type="email" id="email" placeholder="Gerard.legaulois@gmail.com" required minlength="5">
             </div>
             <div class="container_input">
                 <label for="object">Object</label>
-                <input type="text" id="object" placeholder="Le retour du jedi">
+                <input type="text" id="object" placeholder="Le retour du jedi" required minlength="3">
             </div>
             <div id="container_message">
                 <label for="message">Message</label>
-                <textarea type="text" id="message" placeholder="Gerard Legaulois" rows="5" cols="60"></textarea>
+                <textarea type="text" id="message" placeholder="Caractères min : 10" required minlength="10"></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <input type="submit" value="Submit">
         </div>
     </form>
 
