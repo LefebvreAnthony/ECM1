@@ -11,35 +11,38 @@
 </head>
 
 <body>
-    <form action="./php/postForm.php" method="POST" novalidate>
+    <form action="#" novalidate>
         <h2>Form contact</h2>
         <div>
             <div class="container_input">
                 <label for="firstName">Name</label>
                 <div class="input_span">
-                    <input type="text" id="firstName" placeholder="Gerard Legaulois" required minlength="3">
+                    <input type="text" id="firstName" name="firstName" placeholder="Gerard Legaulois" required
+                        minlength="3">
                     <span class="err_name"></span>
                 </div>
             </div>
             <div class="container_input">
                 <label for="email">Email</label>
                 <div class="input_span">
-                    <input type="email" id="email" placeholder="Gerard.legaulois@gmail.com" required minlength="5">
+                    <input type="email" id="email" name="email" placeholder="Gerard.legaulois@gmail.com" required
+                        minlength="5">
                     <span class="err_mail"></span>
                 </div>
             </div>
             <div class="container_input">
                 <label for="object">Object</label>
                 <div class="input_span">
-                    <input type="text" id="object" placeholder="Le retour du jedi" required minlength="3">
+                    <input type="text" id="object" name="object" placeholder="Le retour du jedi" required minlength="3">
                     <span class="err_object"></span>
                 </div>
             </div>
             <div id="container_message">
                 <label for="message">Message</label>
-                <textarea type="text" id="message" placeholder="Caractères min : 10" required minlength="10"></textarea>
+                <textarea type="text" id="message" name="message" placeholder="Caractères min : 10" required
+                    minlength="10"></textarea>
             </div>
-            <input type="submit" value="Submit">
+            <input type="submit" name="submit" value="Submit">
         </div>
     </form>
 
