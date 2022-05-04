@@ -117,7 +117,14 @@ input[type=submit] {
     border: 1px solid var(--text-color);
     cursor: pointer;
     color: var(--text-color);
+    transition: .3s;
 }
+
+input[type=submit]:hover {
+    background-color: var(--bg-input);
+    color: var(--bg-color);
+}
+
 
 /*! input invalid */
 
@@ -135,6 +142,21 @@ textarea:valid {
     border: 2px solid rgb(12, 205, 12);
 }
 
+
+/*! span err */
+
+.input_span {
+    display: flex;
+    flex-direction: column;
+}
+
+.err_name,
+.err_mail,
+.err_object {
+    background-color: red;
+    border-radius: 0 0 5px 5px;
+    font-weight: bold;
+}
 
 /*? Medias */
 

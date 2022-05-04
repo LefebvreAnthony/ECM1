@@ -11,6 +11,8 @@ function validateForm() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        noValidateForm(this.firstName, this.email, this.object);
+
         let myForm = {
             name: this.firstName.value,
             email: this.email.value,
@@ -32,17 +34,26 @@ function validateForm() {
             fetch("./php/postForm.php", init)
                 .then(res => {
                     console.log(res);
-                    res.json();
                 })
                 .then(res => {
                     console.log(res);
                 })
         } else {
-            alert("c'est mauvais")
+
         }
 
     })
 };
+
+function noValidateForm(firstName, email, object) {
+    let spanName = document.querySelector('.err_name');
+    let spanEmail = document.querySelector('.err_mail');
+    let spanObject = document.querySelector('.err_object');
+
+    !verifForm(firstName, "^[A-Za-z]{3,25}$") ? spanName.innerHTML = "Name invalid" : spanName.innerHTML = "";
+    !verifForm(email, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$") ? spanEmail.innerHTML = "Email invalid" : spanEmail.innerHTML = "";
+    !verifForm(object, "^[A-Za-z]{3,20}$") ? spanObject.innerHTML = "Object invalid" : spanObject.innerHTML = "";
+}
 
 
 validateForm()

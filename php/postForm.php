@@ -1,3 +1,5 @@
 <?php
-$arr = ["name" => "holo"];
-echo json_encode($arr);
+
+$name = $_POST["name"];
+
+echo $_SESSION;
