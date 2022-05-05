@@ -15,8 +15,27 @@ function noValidateForm(firstName, email, object) {
     !verifForm(firstName, "^[A-Za-z]{3,25}$") ? spanName.innerHTML = "Name invalid" : spanName.innerHTML = "";
     !verifForm(email, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$") ? spanEmail.innerHTML = "Email invalid" : spanEmail.innerHTML = "";
     !verifForm(object, "^[A-Za-z]{3,20}$") ? spanObject.innerHTML = "Object invalid" : spanObject.innerHTML = "";
+
+    firstName.value.length < 3 ? spanName.innerHTML = "Name invalid : characters mini 3" : null;
+    firstName.value.length > 25 ? spanName.innerHTML = "Name invalid : characters max 25" : null;
+
+    object.value.length < 3 ? spanObject.innerHTML = "object invalid : characters mini 3" : null;
+    object.value.length > 20 ? spanObject.innerHTML = "object invalid : characters max 20" : null;
+
+    speChar(firstName, spanName);
+    speChar(object, spanObject);
+
 }
 
+function speChar(input, span) {
+    let charSpe = "~`!#$%^&*+=-[]\\\';,/{}|\":<>?";
+
+    for (let i = 0; i < input.value.length; i++) {
+        if (charSpe.indexOf(input.value.charAt(i)) != -1) {
+            span.innerHTML = `${input.name} invalid : cannot use spécial characters`
+        }
+    }
+}
 
 function validateForm() {
     let form = document.querySelector('form');
@@ -49,6 +68,7 @@ function validateForm() {
                 })
                 .then(res => {
                     console.log(res);
+
                 })
         } else {
             alert('Formulaire Invalid !')
