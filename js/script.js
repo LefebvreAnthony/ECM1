@@ -12,9 +12,9 @@ function noValidateForm(firstName, email, object) {
     let spanEmail = document.querySelector('.err_mail');
     let spanObject = document.querySelector('.err_object');
 
-    !verifForm(firstName, "^[A-Za-z]{3,25}$") ? spanName.innerHTML = "Name invalid" : spanName.innerHTML = "";
+    !verifForm(firstName, "^[A-Za-z\\s]{3,25}$") ? spanName.innerHTML = "Name invalid" : spanName.innerHTML = "";
     !verifForm(email, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$") ? spanEmail.innerHTML = "Email invalid" : spanEmail.innerHTML = "";
-    !verifForm(object, "^[A-Za-z]{3,20}$") ? spanObject.innerHTML = "Object invalid" : spanObject.innerHTML = "";
+    !verifForm(object, "^[A-Za-z\\s]{3,20}$") ? spanObject.innerHTML = "Object invalid" : spanObject.innerHTML = "";
 
     firstName.value.length < 3 ? spanName.innerHTML = "Name invalid : characters mini 3" : null;
     firstName.value.length > 25 ? spanName.innerHTML = "Name invalid : characters max 25" : null;
@@ -57,13 +57,20 @@ function validateForm() {
             method: 'POST',
             body: JSON.stringify(myForm)
         };
-        if (verifForm(this.firstName, "^[A-Za-z]{3,25}$") &&
+        if (verifForm(this.firstName, "^[A-Za-z\\s]{3,25}$") &&
             verifForm(this.email, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$") &&
-            verifForm(this.object, "^[A-Za-z]{3,20}$") &&
-            verifForm(this.message, "^[A-Za-z]{10,120}$")
+            verifForm(this.object, "^[A-Za-z\\s]{3,20}$") &&
+            verifForm(this.message, "^[a-zA-Z0-9.-_\\s]{10,120}$")
         ) {
             fetch("./php/postForm.php", init)
                 .then(res => {
+                    if (res.ok) {
+                        let alert = document.getElementById("alert");
+                        alert.style.height = "initial";
+                        setTimeout(() => {
+                            alert.style.height = "0";
+                        }, 3500)
+                    }
                     return res.json()
                 })
                 .then(res => {
