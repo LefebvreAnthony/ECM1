@@ -59,8 +59,7 @@ function validateForm() {
         };
         if (verifForm(this.firstName, "^[A-Za-z\\s]{3,25}$") &&
             verifForm(this.email, "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$") &&
-            verifForm(this.object, "^[A-Za-z\\s]{3,20}$") &&
-            verifForm(this.message, "^[a-zA-Z0-9.-_\\s]{10,120}$")
+            verifForm(this.object, "^[A-Za-z\\s]{3,20}$")
         ) {
             fetch("./php/postForm.php", init)
                 .then(res => {
